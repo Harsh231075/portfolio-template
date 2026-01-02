@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sketch Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Quicksand:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            cream: '#fdf6e3',
+            charcoal: '#333333',
+            highlight: '#f8f32b',
+            pink: '#ff6b9d',
+            green: '#a2f88d',
+            lightGreen: '#ccffb9'
+          },
+          fontFamily: {
+            'handwritten': ['Patrick Hand', 'cursive'],
+            'sans': ['Quicksand', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      background-color: #fdf6e3;
+      background-image:
+        linear-gradient(rgba(230, 220, 190, 0.3) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(230, 220, 190, 0.3) 1px, transparent 1px);
+      background-size: 20px 20px;
+      font-family: 'Quicksand', sans-serif;
+    }
+
+    .sketch-border {
+      border: 2px solid #333;
+      box-shadow: 3px 3px 0 0 #333;
+    }
+
+    .sketch-border-thick {
+      border: 3px solid #333;
+      box-shadow: 4px 4px 0 0 #333;
+    }
+
+    .sketch-btn {
+      position: relative;
+      border: 2px solid #333;
+      box-shadow: 3px 3px 0 0 #333;
+      transition: all 0.2s ease;
+    }
+
+    .sketch-btn:hover {
+      transform: translate(2px, 2px);
+      box-shadow: 1px 1px 0 0 #333;
+    }
+
+    .sticky-note {
+      transform: rotate(-2deg);
+      box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .sticky-note:before {
+      content: "";
+      position: absolute;
+      top: -5px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 40px;
+      height: 20px;
+      background: rgba(255, 255, 255, 0.7);
+      border-radius: 50%;
+      clip-path: polygon(0 100%, 100% 100%, 100% 0, 0 0);
+    }
+
+    .marker-highlight {
+      position: relative;
+      display: inline-block;
+    }
+
+    .marker-highlight::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: -2px;
+      right: -2px;
+      height: 10px;
+      background: #f8f32b;
+      z-index: -1;
+      transform: rotate(-1deg);
+    }
+
+    .floating {
+      animation: floating 3s ease-in-out infinite;
+    }
+
+    @keyframes floating {
+      0% {
+        transform: translateY(0px);
+      }
+
+      50% {
+        transform: translateY(-10px);
+      }
+
+      100% {
+        transform: translateY(0px);
+      }
+    }
+
+    .doodle {
+      position: absolute;
+      z-index: -1;
+    }
+  </style>
+</head>
+
+<body class="text-charcoal">
+  <!-- Hero Section -->
+  <section class="min-h-screen flex flex-col items-center justify-center px-4 py-16 relative">
+    <div class="absolute top-10 left-10 w-16 h-16 doodle">
+      <svg viewBox="0 0 100 100">
+        <path d="M20,20 Q40,5 60,20 T100,20" stroke="#333" fill="none" stroke-width="2" />
+        <circle cx="30" cy="40" r="5" fill="#ff6b9d" />
+        <circle cx="70" cy="40" r="5" fill="#a2f88d" />
+      </svg>
+    </div>
+
+    <div class="absolute bottom-20 right-10 w-20 h-20 doodle">
+      <svg viewBox="0 0 100 100">
+        <path d="M30,30 Q50,10 70,30 T90,50" stroke="#333" fill="none" stroke-width="2" />
+        <circle cx="40" cy="60" r="8" fill="#f8f32b" />
+      </svg>
+    </div>
+
+    <div class="max-w-4xl w-full text-center">
+      <h1 class="text-5xl md:text-7xl font-handwritten mb-6">Hey, I'm Alex 👋</h1>
+      <p class="text-xl md:text-2xl mb-12 max-w-2xl mx-auto">Creative designer & developer who loves turning ideas into
+        <span class="marker-highlight">delightful experiences</span>
+      </p>
+
+      <div class="relative inline-block mb-16">
+        <div class="bg-white sketch-border rounded-lg p-2 inline-block transform rotate-1">
+          <div class="bg-gray-200 border-2 border-dashed rounded-xl w-48 h-48 md:w-64 md:h-64" />
+        </div>
+        <div
+          class="absolute -top-4 -right-4 bg-pink sketch-border px-4 py-2 rounded-full text-sm font-bold transform rotate-6">
+          Designer</div>
+        <div
+          class="absolute -bottom-4 -left-4 bg-green sketch-border px-4 py-2 rounded-full text-sm font-bold transform -rotate-6">
+          Developer</div>
+      </div>
+
+      <div class="flex flex-wrap justify-center gap-4 mb-16">
+        <span class="bg-lightGreen sketch-border px-4 py-2 rounded-full text-sm">UI/UX Design</span>
+        <span class="bg-highlight sketch-border px-4 py-2 rounded-full text-sm">Web Development</span>
+        <span class="bg-pink sketch-border px-4 py-2 rounded-full text-sm">Brand Identity</span>
+        <span class="bg-lightGreen sketch-border px-4 py-2 rounded-full text-sm">Illustration</span>
+      </div>
+
+      <div class="flex flex-col sm:flex-row justify-center gap-6 mb-16">
+        <button class="sketch-btn bg-pink text-white font-bold py-4 px-8 rounded-lg text-lg">View My Work</button>
+        <button class="sketch-btn bg-green text-charcoal font-bold py-4 px-8 rounded-lg text-lg">Let's Chat</button>
+      </div>
+
+      <p class="text-lg">Scroll down to see my story ↓</p>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="py-16 px-4 relative">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-4xl font-handwritten mb-12 text-center">My Story</h2>
+
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="bg-white sketch-border p-6 rounded-lg sticky-note relative">
+          <div class="absolute -top-3 left-6 bg-yellow-200 px-4 py-1 rounded-full text-sm font-bold">How I Started</div>
+          <p class="mt-6">I started designing when I was 12, sketching websites in my <span
+              class="marker-highlight">school notebook</span>. What began as a hobby quickly became my passion.</p>
+        </div>
+
+        <div class="bg-white sketch-border p-6 rounded-lg sticky-note relative">
+          <div class="absolute -top-3 left-6 bg-pink px-4 py-1 rounded-full text-sm font-bold text-white">My Approach
+          </div>
+          <p class="mt-6">I believe great design solves problems while making people smile. Every project starts with
+            understanding <span class="marker-highlight">real human needs</span>.</p>
+        </div>
+
+        <div class="bg-white sketch-border p-6 rounded-lg sticky-note relative md:col-span-2">
+          <div class="absolute -top-3 left-6 bg-green px-4 py-1 rounded-full text-sm font-bold">What Drives Me</div>
+          <p class="mt-6">I'm motivated by creating meaningful connections between brands and people. When I see users
+            having an <span class="marker-highlight">aha moment</span> with a product I designed, that's pure magic!</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section class="py-16 px-4">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-4xl font-handwritten mb-12 text-center">My Toolbox</h2>
+
+      <div class="mb-12">
+        <h3 class="text-2xl font-bold mb-6 flex items-center">
+          <span class="mr-2">💻</span> Tech Skills
+        </h3>
+        <div class="flex flex-wrap gap-3">
+          <span class="sketch-border px-4 py-2 rounded-full">Figma</span>
+          <span class="sketch-border px-4 py-2 rounded-full">HTML/CSS</span>
+          <span class="sketch-border px-4 py-2 rounded-full">JavaScript</span>
+          <span class="sketch-border px-4 py-2 rounded-full">React</span>
+          <span class="sketch-border px-4 py-2 rounded-full">Node.js</span>
+          <span class="sketch-border px-4 py-2 rounded-full">UI Design</span>
+          <span class="sketch-border px-4 py-2 rounded-full">Prototyping</span>
+        </div>
+      </div>
+
+      <div>
+        <h3 class="text-2xl font-bold mb-6 flex items-center">
+          <span class="mr-2">🧠</span> Soft Skills
+        </h3>
+        <div class="flex flex-wrap gap-3">
+          <span class="sketch-border px-4 py-2 rounded-full">Problem Solving</span>
+          <span class="sketch-border px-4 py-2 rounded-full">Communication</span>
+          <span class="sketch-border px-4 py-2 rounded-full">Empathy</span>
+          <span class="sketch-border px-4 py-2 rounded-full">Collaboration</span>
+          <span class="sketch-border px-4 py-2 rounded-full">User Research</span>
+          <span class="sketch-border px-4 py-2 rounded-full">Presentation</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section class="py-16 px-4 bg-cream">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-4xl font-handwritten mb-12 text-center">My Process</h2>
+
+      <div class="relative">
+        <!-- Arrow connecting process steps -->
+        <div class="hidden md:block absolute top-1/2 left-0 right-0 h-1 bg-charcoal transform -translate-y-1/2 z-0">
+        </div>
+        <div class="hidden md:block absolute top-1/2 right-0 w-4 h-4 bg-charcoal transform -translate-y-1/2 rotate-45">
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8 relative z-10">
+          <div class="bg-white sketch-border-thick p-6 rounded-lg text-center relative">
+            <div
+              class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-pink text-white w-10 h-10 rounded-full flex items-center justify-center font-bold">
+              1</div>
+            <h3 class="text-xl font-bold mb-4">Discover</h3>
+            <p>We dive deep into your goals, audience, and challenges to define clear objectives.</p>
+            <div class="mt-4 text-pink font-bold">→ 90% clarity gain</div>
+          </div>
+
+          <div class="bg-white sketch-border-thick p-6 rounded-lg text-center relative">
+            <div
+              class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-green text-charcoal w-10 h-10 rounded-full flex items-center justify-center font-bold">
+              2</div>
+            <h3 class="text-xl font-bold mb-4">Design</h3>
+            <p>I create wireframes, prototypes, and high-fidelity designs that solve real problems.</p>
+            <div class="mt-4 text-green font-bold">→ 70% faster iteration</div>
+          </div>
+
+          <div class="bg-white sketch-border-thick p-6 rounded-lg text-center relative">
+            <div
+              class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-highlight text-charcoal w-10 h-10 rounded-full flex items-center justify-center font-bold">
+              3</div>
+            <h3 class="text-xl font-bold mb-4">Deliver</h3>
+            <p>You get polished designs, assets, and development ready for implementation.</p>
+            <div class="mt-4 text-yellow-600 font-bold">→ 95% client satisfaction</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section class="py-16 px-4">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-4xl font-handwritten mb-12 text-center">Featured Work</h2>
+
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="bg-white sketch-border p-6 rounded-lg">
+          <div class="bg-gray-200 border-2 border-dashed rounded-xl w-full h-48 mb-4" />
+          <h3 class="text-xl font-bold mb-2">EcoShop Redesign</h3>
+          <p class="mb-4">Complete e-commerce redesign focusing on sustainability messaging.</p>
+          <div class="flex justify-between text-sm">
+            <span><span class="font-bold">Problem:</span> Low conversion</span>
+            <span><span class="font-bold">Solution:</span> Streamlined UX</span>
+            <span><span class="font-bold">Result:</span> <span class="marker-highlight">+42% sales</span></span>
+          </div>
+        </div>
+
+        <div class="bg-white sketch-border p-6 rounded-lg">
+          <div class="bg-gray-200 border-2 border-dashed rounded-xl w-full h-48 mb-4" />
+          <h3 class="text-xl font-bold mb-2">Finance App UI</h3>
+          <p class="mb-4">Mobile-first financial dashboard for budget tracking.</p>
+          <div class="flex justify-between text-sm">
+            <span><span class="font-bold">Problem:</span> Complex data</span>
+            <span><span class="font-bold">Solution:</span> Data visualization</span>
+            <span><span class="font-bold">Result:</span> <span class="marker-highlight">+65% engagement</span></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="py-16 px-4 bg-cream">
+    <div class="max-w-2xl mx-auto">
+      <div class="bg-white sketch-border p-8 rounded-lg sticky-note relative mb-12">
+        <div class="absolute -top-3 left-6 bg-pink px-4 py-1 rounded-full text-sm font-bold text-white">Let's Connect!
+        </div>
+        <p class="mt-6 text-lg">Have a project in mind? Want to grab coffee and chat about design? I'd love to hear from
+          you!</p>
+      </div>
+
+      <form class="space-y-6">
+        <div>
+          <label class="block mb-2 font-bold">Your Name</label>
+          <input type="text" class="w-full p-4 border-2 border-charcoal rounded-lg sketch-border"
+            placeholder="Alex Johnson">
+        </div>
+
+        <div>
+          <label class="block mb-2 font-bold">Email Address</label>
+          <input type="email" class="w-full p-4 border-2 border-charcoal rounded-lg sketch-border"
+            placeholder="alex@example.com">
+        </div>
+
+        <div>
+          <label class="block mb-2 font-bold">Project Details</label>
+          <textarea class="w-full p-4 border-2 border-charcoal rounded-lg sketch-border" rows="5"
+            placeholder="Tell me about your project..."></textarea>
+        </div>
+
+        <div class="flex items-center">
+          <input type="checkbox" id="updates" class="mr-2">
+          <label for="updates">Keep me updated on your creative process</label>
+        </div>
+
+        <button type="submit" class="sketch-btn bg-pink text-white font-bold py-4 px-8 rounded-lg text-lg w-full">Send
+          Message 🚀</button>
+      </form>
+
+      <div class="mt-8 text-center text-sm">
+        <p>No boring contracts. Just friendly conversation.</p>
+        <p class="mt-2">I usually respond within 24 hours ✨</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-8 px-4 text-center">
+    <div class="max-w-4xl mx-auto">
+      <p>Made with ❤️ and lots of ☕</p>
+      <p class="mt-2">© 2023 Alex's Sketchbook. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+
+</html>
