@@ -4,6 +4,11 @@ This repository is a public portfolio template with a friendly sketchpad / noteb
 
 ![Screenshot](public/assets/gallery/screenshot.png)
 
+Live demo
+-
+Visit the live demo: https://portfolio-template-tan-three.vercel.app
+
+
 There are two ready-to-use variants in this repo:
 
 - Next.js (React) version — built with the App Router and components under `app/` and `components/`.
@@ -54,3 +59,4 @@ If you want, I can:
 - Wire gallery cards to project detail pages (`/projects/[slug]`).
 - Replace placeholder images with real screenshots from `/public/assets/...`.
 - Add a LICENSE file (e.g., MIT) if you want an explicit license.
+
