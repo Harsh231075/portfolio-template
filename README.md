@@ -2,6 +2,8 @@
 
 This repository is a public portfolio template with a friendly sketchpad / notebook UI. Use it freely to build your own portfolio or to learn from the design and code.
 
+![Screenshot](public/assets/gallery/screenshot.png)
+
 There are two ready-to-use variants in this repo:
 
 - Next.js (React) version — built with the App Router and components under `app/` and `components/`.
@@ -47,9 +49,6 @@ npx serve .
 Assets and images
 - Put images under `public/assets/...` (used by Next.js) or reference local paths in `index.html` for the static variant.
 
-Notes
-- This template is public — you may copy, modify, and use it for your personal portfolio.
-- If you want a single canonical source, consider removing the duplicate static gallery or the React gallery to avoid content duplication.
 
 If you want, I can:
 - Wire gallery cards to project detail pages (`/projects/[slug]`).
